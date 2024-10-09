@@ -1,1 +1,1 @@
-FROM secretflow/anolis8-python:3.10.13
+FROM secretflow/release-ci:latest
