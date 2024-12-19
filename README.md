@@ -23,3 +23,8 @@ sh build.sh -v oran
 ./update-sf-components.sh -u root -i secretflow/sf-dev-anolis8:oran
 # 重启容器
 docker restart root-kuscia-master-secretpad
+
+# 注册组件镜像
+./register_app_image.sh -c root-kuscia-master -i docker.io/secretflow/sf-dev-anolis8:oran -f app_image.secretflow.oran.yaml
+# 节点导入引擎镜像
+./register_app_image.sh -c root-kuscia-lite-hjxndwid -i docker.io/secretflow/sf-dev-anolis8:oran --import
