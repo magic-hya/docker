@@ -12,3 +12,14 @@ bash install.sh lite -n hjxndwid -m 'http://10.11.58.236:15080' -t VMhJqm8dubAh2
     kuscia        grpc      port: 15083
     kuscia        gateway   port: 15080
     kuscia        protocol: tls
+
+# 打包新的包
+python3 setup.py bdist_wheel --lite
+# dist/secretflow_lite-1.9.0b2-cp310-cp310-manylinux2014_x86_64.whl
+# 制作镜像
+sh build.sh -v oran
+
+# 更新平台列表组件
+./update-sf-components.sh -u root -i secretflow/sf-dev-anolis8:oran
+# 重启容器
+docker restart root-kuscia-master-secretpad
